@@ -7,7 +7,7 @@ const buttonText = ref("檢查後端伺服器是否正常運作");
 const fetchData = async () => {
   buttonText.value = "正在等待回應";
   try {
-    const response = await axios.get("http://localhost:8080/");
+    const response = await axios.get(import.meta.env.VITE_SERVER_BASE_URL);
     console.log(response.data);
     buttonText.value = "後端伺服器正常運作中";
   } catch (error) {
